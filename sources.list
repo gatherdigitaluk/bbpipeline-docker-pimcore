@@ -1,0 +1,13 @@
+deb http://ftp.uk.debian.org/debian/ jessie main
+deb-src http://ftp.uk.debian.org/debian/ jessie main
+
+deb http://security.debian.org/ jessie/updates main
+deb-src http://security.debian.org/ jessie/updates main
+
+# jessie-updates, previously known as 'volatile'
+deb http://ftp.uk.debian.org/debian/ jessie-updates main
+deb-src http://ftp.uk.debian.org/debian/ jessie-updates main
+
+# dotdeb
+deb http://packages.dotdeb.org jessie all
+deb-src http://packages.dotdeb.org jessie all
