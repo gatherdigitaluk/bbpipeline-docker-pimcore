@@ -22,6 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
  build-essential \
  autoconf \
  cabextract
+ 
 
 # install php packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -49,10 +50,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 WORKDIR /tmp
 
-# install compoesr
+# install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/bin --filename=composer \
     && php -r "unlink('composer-setup.php');"
+
+# install node & npm
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs
+
+# install webpack
+RUN npm i -g webpack
 
 VOLUME ["/app"]
 WORKDIR /app
